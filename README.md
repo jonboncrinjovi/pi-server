@@ -7,3 +7,9 @@ ufw: deny all incoming except SSH from the LAN (192.168.0.0/24).
 - fail2ban: sshd jail, systemd backend (trixie has no auth.log),
 5 retries, 1h ban. Config: /etc/fail2ban/jail.local
 - unattended-upgrades: daily automatic security updates
+## DOCKER
+Installed from Docker's official Debian repo; user added to the docker group.
+
+## Public access
+Tailscale Funnel exposes localhost:8080 at https://<host>.ts.net
+No router ports opened. Postgres is never exposed.
