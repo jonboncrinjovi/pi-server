@@ -13,3 +13,7 @@ Installed from Docker's official Debian repo; user added to the docker group.
 ## Public access
 Tailscale Funnel exposes localhost:8080 at https://<host>.ts.net
 No router ports opened. Postgres is never exposed.
+## Backups
+
+backup.sh dumps the books database nightly at 03:30 (cron) to ~/backups,
+gzipped, keeping 14 days. Log: ~/backups/backup.log
