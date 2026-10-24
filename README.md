@@ -17,3 +17,8 @@ No router ports opened. Postgres is never exposed.
 
 backup.sh dumps the books database nightly at 03:30 (cron) to ~/backups,
 gzipped, keeping 14 days. Log: ~/backups/backup.log
+## UPS shutdown (NUT)
+Standalone mode, UPS "ippon" over USB (driver from nut-scanner).
+upsmon shuts the Pi down when the UPS reports low battery.
+Check status: upsc ippon@localhost
+Config in /etc/nut; the password lives only there, never in this repo.
