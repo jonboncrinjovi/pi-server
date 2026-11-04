@@ -1,0 +1,3 @@
+#!/bin/sh
+# send the server's address through the home router, not the Latvian VPN
+ip route replace 200.169.181.113/32 via "$(ip -4 route show default | awk '{print $3; exit}')"

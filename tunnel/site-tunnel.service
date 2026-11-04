@@ -1,0 +1,17 @@
+[Unit]
+Description=Reverse SSH tunnel: literalwine.ru on the server -> the app on this Pi
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=jonboncrinjovi
+ExecStartPre=+/usr/local/bin/tunnel-route
+ExecStart=/usr/bin/ssh -N -i /home/jonboncrinjovi/.ssh/tunnel \
+  -o ExitOnForwardFailure=yes -o ServerAliveInterval=15 -o ServerAliveCountMax=3 \
+  -o StrictHostKeyChecking=accept-new \
+  -R 127.0.0.1:3000:127.0.0.1:3000 tunnel@200.169.181.113
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
